@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vikaash T — AI Engineer</title>
 <meta name="description" content="Vikaash T — AI Engineer. Machine learning, deep learning, explainable AI and NLP.">
+<meta property="og:title" content="Vikaash T — AI Engineer">
+<meta property="og:description" content="Machine learning, deep learning, explainable AI and NLP.">
+<meta property="og:type" content="website">
 <link rel="icon" href="data:image/x-icon;base64,AAABAAEAAQEAAAEAIAAwAAAAFgAAACgAAAABAAAAAgAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="image/x-icon">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,6 +23,7 @@
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
+      <a href="#certifications">Certifications</a>
       <a href="#expertise">Expertise</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -47,7 +51,9 @@
       </p>
       <div class="hero-actions">
         <a href="#research" class="btn btn-ink">View Research</a>
-        <a href="assets/resume/resume-%20Vikaash.pdf" class="btn btn-line" download>Download Résumé</a>
+        <a href="assets/resume/resume-vikaash.pdf" class="btn btn-line" target="_blank" rel="noopener">
+          View / Download Résumé
+      </a>
       </div>
       <dl class="hero-facts">
         <div><dt>Focus</dt><dd>Machine Learning · Deep Learning</dd></div>
@@ -165,7 +171,7 @@
           <div class="project-media-item">
               <img
                   class="project-image"
-                  src="assets\images\projects\it-ticket-classification3.png"
+                  src="assets/images/projects/it-ticket-classification3.png"
                   alt="IT Ticket Classification Dashboard"
                   loading="lazy">
               <p class="media-caption">Prediction Dashboard</p>
@@ -177,7 +183,7 @@
           <div><dt>Prediction modes</dt><dd>Single &amp; bulk CSV</dd></div>
           <div><dt>Dashboard</dt><dd>Interactive analytics</dd></div>
         </dl>
-        <p class="stack"><span>Python</span><span>PyTorch</span><span>DistilBERT</span><span>Flask</span><span>Pandas</span><span>Chart.js</span></p>
+        <p class="stack"><span>Python</span><span>PyTorch</span><span>BERT</span><span>Flask</span><span>Pandas</span><span>Chart.js</span></p>
         <p class="project-links"><a href="https://github.com/Vikaash-17/IT_Ticket_Classification">GitHub</a></p>
       </article>
 
@@ -242,7 +248,44 @@
     </div>
   </section>
 
-  <section class="section" id="expertise">
+  <section class="section" id="certifications">
+    <div class="wrap">
+      <p class="eyebrow">Certifications</p>
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-lede">
+        Professional certifications supporting continued learning in
+        artificial intelligence and applied machine learning.
+      </p>
+
+      <div class="pub-list">
+        <article class="pub-item">
+          <span class="pub-year">2026</span>
+          <div class="pub-body">
+            <span class="pub-type">Certification</span>
+            <h3>Artificial Intelligence Fundamentals</h3>
+            <p>IBM SkillsBuild</p>
+            <button type="button" class="btn btn-line btn-sm cert-view-btn" data-pdf="assets/certificates/ai-fundamentals-ibm.pdf">View Certificate</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="cert-modal" id="certModal" aria-hidden="true">
+    <div class="cert-modal-backdrop" data-cert-close></div>
+    <div class="cert-modal-panel" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+      <div class="cert-modal-head">
+        <span class="cert-modal-title">Certificate</span>
+        <div class="cert-modal-actions">
+          <a class="btn btn-line btn-sm" id="certOpenNewTab" href="#" target="_blank" rel="noopener">Open in New Tab</a>
+          <button type="button" class="cert-modal-close" data-cert-close aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <iframe id="certFrame" class="cert-modal-frame" title="Certificate PDF" src=""></iframe>
+    </div>
+  </div>
+
+  <section class="section band" id="expertise">
     <div class="wrap">
       <p class="eyebrow">Expertise</p>
       <h2 class="section-title">Technical Expertise</h2>
@@ -306,6 +349,44 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var modal = document.getElementById('certModal');
+  var frame = document.getElementById('certFrame');
+  var openNewTab = document.getElementById('certOpenNewTab');
+  var buttons = document.querySelectorAll('.cert-view-btn');
+  var closers = document.querySelectorAll('[data-cert-close]');
+
+  function openModal(pdfPath) {
+    frame.src = pdfPath;
+    openNewTab.href = pdfPath;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openModal(btn.getAttribute('data-pdf'));
+    });
+  });
+
+  closers.forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
