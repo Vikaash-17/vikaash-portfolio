@@ -264,26 +264,12 @@
             <span class="pub-type">Certification</span>
             <h3>Artificial Intelligence Fundamentals</h3>
             <p>IBM SkillsBuild</p>
-            <button type="button" class="btn btn-line btn-sm cert-view-btn" data-pdf="assets/certificates/ai-fundamentals-ibm.pdf">View Certificate</button>
+            <a href="assets/certificates/ai-fundamentals-ibm.pdf" class="btn btn-line btn-sm" target="_blank" rel="noopener">View / Download Certificate</a>
           </div>
         </article>
       </div>
     </div>
   </section>
-
-  <div class="cert-modal" id="certModal" aria-hidden="true">
-    <div class="cert-modal-backdrop" data-cert-close></div>
-    <div class="cert-modal-panel" role="dialog" aria-modal="true" aria-label="Certificate viewer">
-      <div class="cert-modal-head">
-        <span class="cert-modal-title">Certificate</span>
-        <div class="cert-modal-actions">
-          <a class="btn btn-line btn-sm" id="certOpenNewTab" href="#" target="_blank" rel="noopener">Open in New Tab</a>
-          <button type="button" class="cert-modal-close" data-cert-close aria-label="Close">&times;</button>
-        </div>
-      </div>
-      <iframe id="certFrame" class="cert-modal-frame" title="Certificate PDF" src=""></iframe>
-    </div>
-  </div>
 
   <section class="section band" id="expertise">
     <div class="wrap">
@@ -349,44 +335,6 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var modal = document.getElementById('certModal');
-  var frame = document.getElementById('certFrame');
-  var openNewTab = document.getElementById('certOpenNewTab');
-  var buttons = document.querySelectorAll('.cert-view-btn');
-  var closers = document.querySelectorAll('[data-cert-close]');
-
-  function openModal(pdfPath) {
-    frame.src = pdfPath;
-    openNewTab.href = pdfPath;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-    frame.src = '';
-    document.body.style.overflow = '';
-  }
-
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      openModal(btn.getAttribute('data-pdf'));
-    });
-  });
-
-  closers.forEach(function (el) {
-    el.addEventListener('click', closeModal);
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-  });
-})();
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>

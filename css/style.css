@@ -318,8 +318,6 @@ a:focus-visible, button:focus-visible{
 
 /* ---------- Projects ---------- */
 
-/* ---------- Projects ---------- */
-
 .project{
   padding: 40px 0;
   border-top: 1px solid var(--rule);
@@ -358,10 +356,6 @@ a:focus-visible, button:focus-visible{
   margin: 0 0 22px;
 }
 
-/* ---------- GIF/Image ---------- */
-
-/* ---------- Project Media ---------- */
-
 /* ---------- Project Media ---------- */
 
 .project-media{
@@ -377,12 +371,10 @@ a:focus-visible, button:focus-visible{
   text-align: center;
 }
 
-/* Same height, natural width */
-
 .project-gif,
 .project-image{
-  height: 220px;      /* Change this to 200px, 240px, etc. if needed */
-  width: auto;        /* Width adjusts automatically */
+  height: 220px;
+  width: auto;
   max-width: 100%;
   display: block;
 
@@ -548,6 +540,12 @@ a:focus-visible, button:focus-visible{
 .skills-val{
   color: var(--ink-soft);
   font-size: 0.94rem;
+}
+
+/* ---------- Certifications ---------- */
+
+.pub-body .btn-sm{
+  margin-top: 14px;
 }
 
 /* ---------- Contact ---------- */
